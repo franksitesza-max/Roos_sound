@@ -3,20 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Roos Sound Productions DJ packages for housedances, 21sts, weddings, res events and private parties.">
-  <title>Packages | Roos Sound Productions</title>
+  <meta name="description" content="View DJ packages for weddings, formal dances, res functions, and 21sts from Roos Sound Productions. Complete packages starting at R5,000.">
+  <meta name="keywords" content="Wedding DJ Package, 21st DJ Price, Stellenbosch DJ Cost, Housedance DJ Package, Custom DJ Quote">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roossound.co.za/packages.html">
+  <meta property="og:title" content="DJ Packages & Pricing | Roos Sound Productions">
+  <meta property="og:description" content="Choose from full-day wedding DJ packages, formal and residence dance DJ setups, or customize your own booking with Michael Roos.">
+  <meta property="og:image" content="/assets/michael-roos.jpg">
+
+  <title>DJ Packages & Pricing | Roos Sound Productions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="packages">
+  <div id="navbar-root"></div>
+
   <main>
     <section class="page-hero">
       <div class="container stack reveal">
         <span class="eyebrow">Packages</span>
         <h1>DJ packages with <span class="gradient-text">room to flex.</span></h1>
-        <p class="lead">Keep the main offer simple: Michael DJs the event, then the quote is shaped around the crowd, the room and the runtime.</p>
+        <p class="lead">Keep the main offer simple: Michael DJs the event, then the quote is shaped around the crowd, the room and the runtime. No complicated tiers or hidden fees.</p>
       </div>
     </section>
 
@@ -24,50 +35,62 @@
       <div class="container">
         <div class="catalog-toolbar">
           <h2>DJ Packages</h2>
-          <p>Final pricing can stay quote-based until the package details are confirmed.</p>
+          <p>Professional sound, lighting and performance packages all-in.</p>
         </div>
 
-        <div class="grid-3">
+        <div class="grid-3 packages-grid">
+          <!-- Party DJ Package -->
           <article class="glass card reveal">
-            <span class="badge">Starter</span>
-            <h3>Compact DJ Set</h3>
-            <div class="price">Quote</div>
-            <p>For shorter parties and focused sets.</p>
-            <ul class="features">
-              <li>DJ Michael Roos</li>
-              <li>Up to 3 hours</li>
-              <li>Playlist consultation</li>
-              <li>Setup discussed first</li>
-            </ul>
-            <a class="btn secondary" href="dj.html#booking">Get a Quote</a>
-          </article>
-
-          <article class="glass card reveal delay-1">
             <span class="badge pink">Popular</span>
-            <h3>Standard Event Set</h3>
-            <div class="price">Quote</div>
-            <p>For proper party runtime and a stronger dance-floor arc.</p>
+            <h3>Formal, Residence & 21st DJ</h3>
+            <div class="price">R5,000</div>
+            <p className="price-kicker">All-In Package</p>
+            <p>A complete party DJ package for formal dances, residence events, 21st birthdays and private celebrations. Includes a 5-hour DJ set.</p>
             <ul class="features">
-              <li>DJ Michael Roos</li>
-              <li>Event flow planning</li>
-              <li>Genre range tailored to the crowd</li>
-              <li>MC moments if needed</li>
+              <li>DJ Michael Roos (5-hour set)</li>
+              <li>Professional sound system</li>
+              <li>Wired/Wireless Microphone for speeches</li>
+              <li>Dance floor lighting setup</li>
+              <li>Full setup & pack-down</li>
+              <li>Custom music planning & genre choices</li>
             </ul>
             <a class="btn" href="dj.html#booking">Get a Quote</a>
           </article>
 
-          <article class="glass card reveal delay-2">
+          <!-- Wedding DJ Package -->
+          <article class="glass card reveal delay-1">
             <span class="badge hot">Premium</span>
-            <h3>Full Night DJ</h3>
-            <div class="price">Quote</div>
-            <p>For longer nights, weddings and bigger event timelines.</p>
+            <h3>Full-Day Wedding DJ</h3>
+            <div class="price">R12,500</div>
+            <p className="price-kicker">All-In Package</p>
+            <p>From ceremony walk down the aisle to the final dance floor peak, a single, reliable solution covering sound, music and atmosphere.</p>
             <ul class="features">
-              <li>Extended performance time</li>
-              <li>Planning call</li>
-              <li>Custom intro or key moments</li>
-              <li>Quote before confirmation</li>
+              <li>Full-day DJ coverage by Michael</li>
+              <li>Ceremony sound and music setup</li>
+              <li>Canapés / pre-drinks background setup</li>
+              <li>Reception and dance floor DJ set</li>
+              <li>Wireless microphone for speeches</li>
+              <li>Dynamic dance floor lighting</li>
+              <li>Pre-wedding planning & timeline alignment</li>
             </ul>
-            <a class="btn secondary" href="dj.html#booking">Get a Quote</a>
+            <a class="btn" href="dj.html#booking">Get a Quote</a>
+          </article>
+
+          <!-- Custom DJ Package -->
+          <article class="glass card reveal delay-2">
+            <span class="badge">Custom</span>
+            <h3>Hourly & Equipment Hire</h3>
+            <div class="price">R550<small>/hr</small></div>
+            <p className="price-kicker">DJ-Only / Flex</p>
+            <p>Need something more flexible? Hire Michael on an hourly rate or enquire about custom equipment rental solutions tailored to your venue.</p>
+            <ul class="features">
+              <li>DJ-only sets: R550 per hour</li>
+              <li>Equipment-only rentals available separately</li>
+              <li>Flexible sound size matching</li>
+              <li>Perfect for smaller cocktail evenings</li>
+              <li>Sound/lighting only setups</li>
+            </ul>
+            <a class="btn secondary" href="equipment.html">View Equipment Rentals</a>
           </article>
         </div>
       </div>
@@ -77,13 +100,17 @@
       <div class="container cta-panel glass">
         <div class="stack">
           <span class="eyebrow">Equipment Rentals</span>
-          <h2>Need gear without inventing a catalog yet?</h2>
-          <p class="lead">Use the rentals page as the clean next step. It can hold the future equipment list once the final inventory, photos and specs are ready.</p>
+          <h2>Need to rent sound, lighting, or DJ gear?</h2>
+          <p class="lead">View our exact local inventory and create a custom quote request dynamically to see availability.</p>
         </div>
         <a class="btn" href="equipment.html">View Rentals</a>
       </div>
     </section>
   </main>
+
+  <div id="footer-root"></div>
+
+  <script type="module" src="/src/main.jsx"></script>
   <script type="module" src="/js/main.js"></script>
 </body>
 </html>

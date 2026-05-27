@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roossound.co.za/sitemap.xml

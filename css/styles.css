@@ -1573,3 +1573,182 @@ select option { background: #09101a; }
     height: 62px;
   }
 }
+
+/* Equipment Catalog Interactive Elements */
+.selected-item {
+  border-color: var(--cyan) !important;
+  box-shadow: 0 0 34px rgba(33, 240, 210, 0.2), var(--glass-glow) !important;
+}
+
+.price-kicker {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: -6px;
+  margin-bottom: 8px;
+}
+
+.equipment-catalog-system {
+  margin-top: 24px;
+}
+
+.equipment-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.equipment-card-header h3 {
+  text-align: center;
+}
+
+/* Floating Enquiry Drawer */
+.enquiry-drawer {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: min(100% - 48px, 360px);
+  z-index: 100;
+  border-radius: 18px;
+  border: 1px solid var(--glass-edge);
+  background: var(--glass-fill), rgba(5, 10, 18, 0.92);
+  box-shadow: 0 38px 100px rgba(0, 0, 0, 0.6), 0 0 44px rgba(90, 167, 255, 0.12);
+  backdrop-filter: blur(28px) saturate(180%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.enquiry-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--line);
+  user-select: none;
+}
+
+.enquiry-drawer-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.enquiry-drawer-title h3 {
+  font-size: 0.96rem;
+  font-weight: 700;
+  font-family: Inter, sans-serif;
+  letter-spacing: 0;
+  margin: 0;
+  color: var(--text);
+}
+
+.cart-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding-inline: 6px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--cyan), var(--blue));
+  color: #031018;
+  font-size: 0.72rem;
+  font-weight: 900;
+  box-shadow: 0 0 14px rgba(33, 240, 210, 0.4);
+}
+
+.drawer-toggle {
+  background: none;
+  border: none;
+  color: var(--cyan);
+  font-size: 0.8rem;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.enquiry-drawer-body {
+  padding: 18px 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.enquiry-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 180px;
+  overflow-y: auto;
+  display: grid;
+  gap: 8px;
+}
+
+.enquiry-list::-webkit-scrollbar {
+  width: 4px;
+}
+.enquiry-list::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 2px;
+}
+
+.enquiry-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.86rem;
+  color: var(--muted);
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.enquiry-item strong {
+  color: var(--cyan);
+  margin-right: 4px;
+}
+
+.remove-item-btn {
+  background: none;
+  border: none;
+  color: var(--pink);
+  font-size: 1.15rem;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+.remove-item-btn:hover {
+  color: #ff2d7a;
+}
+
+.enquiry-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.enquiry-actions .btn {
+  flex: 1;
+}
+
+.enquiry-actions .whatsapp-btn {
+  background: linear-gradient(135deg, #25D366, #128C7E) !important;
+  color: white !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.enquiry-actions .whatsapp-btn:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.3) !important;
+}
+
+@media (max-width: 760px) {
+  .enquiry-drawer {
+    bottom: 14px;
+    right: 14px;
+    width: calc(100% - 28px);
+  }
+}

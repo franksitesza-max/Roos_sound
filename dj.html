@@ -3,14 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Book DJ Michael Roos for housedances, 21sts, weddings, res events and private parties.">
-  <title>DJ Services | Roos Sound Productions</title>
+  <meta name="description" content="Book DJ Michael Roos for weddings, student events, res housedances, 21sts, and festivals in Stellenbosch and South Africa.">
+  <meta name="keywords" content="DJ Michael Roos, Book Stellenbosch DJ, Housedance DJ, Wedding DJ South Africa, Stellenbosch student party DJ">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roossound.co.za/dj.html">
+  <meta property="og:title" content="DJ Services & Booking | Roos Sound Productions">
+  <meta property="og:description" content="Commercial DJ experience across housedances, weddings, and 21sts in Stellenbosch. Book Michael Roos directly.">
+  <meta property="og:image" content="/assets/michael-roos.jpg">
+
+  <title>DJ Services & Booking | Roos Sound Productions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="dj">
+  <div id="navbar-root"></div>
+
   <main>
     <section class="hero compact-hero">
       <div class="container hero-layout hero-layout-single">
@@ -44,10 +55,22 @@
 
     <section class="section-tight">
       <div class="container grid-4 genre-grid">
-        <div class="glass card genre-card genre-1 reveal"><h3>Amapiano, Gqom & Isighubu</h3><div class="meter meter-95"><span></span></div></div>
-        <div class="glass card genre-card genre-2 reveal delay-1"><h3>Sokkie & Afrikaans</h3><div class="meter meter-90"><span></span></div></div>
-        <div class="glass card genre-card genre-3 reveal delay-2"><h3>Disco & Oldies</h3><div class="meter meter-92"><span></span></div></div>
-        <div class="glass card genre-card genre-4 reveal delay-3"><h3>House & Techno</h3><div class="meter meter-88"><span></span></div></div>
+        <div class="glass card genre-card genre-1 reveal">
+          <h3>Amapiano, Gqom & Isighubu</h3>
+          <div class="meter meter-95"><span></span></div>
+        </div>
+        <div class="glass card genre-card genre-2 reveal delay-1">
+          <h3>Sokkie & Afrikaans</h3>
+          <div class="meter meter-90"><span></span></div>
+        </div>
+        <div class="glass card genre-card genre-3 reveal delay-2">
+          <h3>Disco & Oldies</h3>
+          <div class="meter meter-92"><span></span></div>
+        </div>
+        <div class="glass card genre-card genre-4 reveal delay-3">
+          <h3>House & Techno</h3>
+          <div class="meter meter-88"><span></span></div>
+        </div>
       </div>
     </section>
 
@@ -60,9 +83,18 @@
         </div>
         <div class="glass card reveal delay-1">
           <div class="timeline">
-            <div class="timeline-item"><h3>Housedances</h3><p>High-energy student events with fast crowd feedback and genre switching.</p></div>
-            <div class="timeline-item"><h3>21st Birthdays</h3><p>Personal sets with singalongs, throwbacks and party-focused peaks.</p></div>
-            <div class="timeline-item"><h3>Weddings</h3><p>More polished flow from speeches and first dance into full dance-floor momentum.</p></div>
+            <div class="timeline-item">
+              <h3>Housedances</h3>
+              <p>High-energy student events with fast crowd feedback and genre switching.</p>
+            </div>
+            <div class="timeline-item">
+              <h3>21st Birthdays</h3>
+              <p>Personal sets with singalongs, throwbacks and party-focused peaks.</p>
+            </div>
+            <div class="timeline-item">
+              <h3>Weddings</h3>
+              <p>More polished flow from speeches and first dance into full dance-floor momentum.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -70,9 +102,21 @@
 
     <section class="section-tight">
       <div class="container grid-3">
-        <article class="glass card reveal"><span class="badge">Testimonial</span><p>"A familiar name for Stellenbosch crowds planning a proper night."</p><h3>Stellenbosch Event Crowd</h3></article>
-        <article class="glass card reveal delay-1"><span class="badge pink">Strength</span><p>"He reads the room and adapts the set instead of forcing a playlist."</p><h3>Private Event Client</h3></article>
-        <article class="glass card reveal delay-2"><span class="badge hot">Setup</span><p>"The sound system arrived ready, checked and clean."</p><h3>Event Organiser</h3></article>
+        <article class="glass card reveal">
+          <span class="badge">Testimonial</span>
+          <p>"A familiar name for Stellenbosch crowds planning a proper night."</p>
+          <h3>Stellenbosch Event Crowd</h3>
+        </article>
+        <article class="glass card reveal delay-1">
+          <span class="badge pink">Strength</span>
+          <p>"He reads the room and adapts the set instead of forcing a playlist."</p>
+          <h3>Private Event Client</h3>
+        </article>
+        <article class="glass card reveal delay-2">
+          <span class="badge hot">Setup</span>
+          <p>"The sound system arrived ready, checked and clean."</p>
+          <h3>Event Organiser</h3>
+        </article>
       </div>
     </section>
 
@@ -100,6 +144,10 @@
       </div>
     </section>
   </main>
+
+  <div id="footer-root"></div>
+
+  <script type="module" src="/src/main.jsx"></script>
   <script type="module" src="/js/main.js"></script>
 </body>
 </html>
