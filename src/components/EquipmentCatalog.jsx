@@ -3,92 +3,49 @@ import { useState } from 'react';
 const CATEGORIES = [
   { id: 'all', label: 'All Equipment' },
   { id: 'sound', label: 'Sound Systems' },
-  { id: 'mics', label: 'Microphones' },
-  { id: 'lighting', label: 'Lighting & FX' },
-  { id: 'dj', label: 'DJ Decks' }
+  { id: 'lighting', label: 'Lighting & FX' }
 ];
 
 const EQUIPMENT_ITEMS = [
   {
     id: 'alto-speakers',
-    name: 'Alto TS415 Active Speakers',
+    name: 'Alto Speakers',
+    image: '/assets/equipment-alto-speaker.png',
     qty: '2x',
-    spec: '2500W Active Loudspeakers',
+    spec: 'Active PA Speakers',
     category: 'sound',
-    desc: 'Powerful active PA speakers providing crystal-clear high and mid projection. Perfect for ceremony sound, speeches, and full dance floor coverage.',
-    details: 'Samson speaker stands included.'
+    desc: 'Powerful active speakers for clear speech, clean mids, and full dance-floor projection.',
+    details: 'Speaker stands included.'
   },
   {
-    id: 'fbt-subwoofer',
-    name: 'FBT X-SUB 18SA Active Subwoofer',
+    id: 'subwoofer',
+    name: 'Subwoofer',
+    image: '/assets/equipment-subwoofer.webp',
     qty: '1x',
-    spec: '1200W RMS / 18" Subwoofer',
+    spec: '18-inch Active Sub',
     category: 'sound',
-    desc: 'Professional active subwoofer delivering deep, controlled low-end punch to give the dance floor a proper floor feel.',
-    details: 'Heavy-duty bass response.'
-  },
-  {
-    id: 'alto-mixer',
-    name: 'Alto AMX FX140 Audio Mixer',
-    qty: '1x',
-    spec: 'Multi-channel mixing console',
-    category: 'sound',
-    desc: 'Compact audio mixer to control microphone levels, background music, and direct DJ console outputs with integrated FX routing.',
-    details: 'All required audio cabling included.'
-  },
-  {
-    id: 'hybrid-wireless-mics',
-    name: 'Hybrid U-DV FE Wireless Microphones',
-    qty: '2x',
-    spec: 'Dual Handheld UHF Wireless',
-    category: 'mics',
-    desc: 'High-frequency wireless microphone set for speeches, toasts, MCing, and announcements. Clear signal across the room.',
-    details: 'Includes microphone stand.'
-  },
-  {
-    id: 'superlux-mic',
-    name: 'Superlux Dynamic Microphone',
-    qty: '1x',
-    spec: 'Corded Vocal Microphone',
-    category: 'mics',
-    desc: 'Robust corded dynamic microphone, perfect as a backup mic or for ceremony/DJ booth announcements.',
-    details: 'Vocal-tuned frequency response.'
+    desc: 'Deep, controlled bass response that gives the dance floor proper low-end weight.',
+    details: 'Designed for event-scale output.'
   },
   {
     id: 'beamz-partybar',
-    name: 'Beamz Partybar 12 Light System',
+    name: 'Beamz Partybar 12 Light',
+    image: '/assets/equipment-beamz-partybar12.png',
     qty: '1x',
     spec: 'LED RGBW Wash & Derby System',
     category: 'lighting',
-    desc: 'All-in-one lighting stand equipped with high-intensity LED wash pars and derby effect lights to illuminate the dance floor automatically.',
+    desc: 'All-in-one lighting system with wash and derby effects to energize the dance floor.',
     details: 'Sound-to-light activation.'
   },
   {
-    id: 'parcan-lights',
-    name: 'Parcan Wash Lights',
-    qty: '4x',
-    spec: 'RGB LED Spotlights',
-    category: 'lighting',
-    desc: 'Compact wash lights to create ambient color schemes, illuminate walls, or add pulsing color beats behind the DJ booth.',
-    details: 'Flexible positioning stands.'
-  },
-  {
-    id: 'beamz-smoke-machine',
-    name: 'Beamz Rage 600 LED Smoke Machine',
+    id: 'smoke-machine',
+    name: 'Smoke Machine',
+    image: '/assets/equipment-smoke-machine.png',
     qty: '1x',
-    spec: '600W fogger with Amber LEDs',
+    spec: 'Event Fogger',
     category: 'lighting',
-    desc: 'Compact smoke machine that highlights light beams on the dance floor. Features built-in amber LEDs for a warm flame-like exit effect.',
-    details: 'Safe, water-based fog liquid.'
-  },
-  {
-    id: 'numark-controller',
-    name: 'Numark Mixtrack Platinum FX DJ Controller',
-    qty: '1x',
-    spec: '4-deck DJ controller with FX paddles',
-    category: 'dj',
-    desc: 'Professional DJ controller featuring built-in display screens on the jog wheels, dedicated FX paddles, and seamless software integration.',
-    details: 'Used directly by Michael for live mixing.'
+    desc: 'Smoke output that makes light beams more visible and boosts the event atmosphere.',
+    details: 'Water-based fog fluid.'
   }
 ];
 
@@ -117,19 +74,19 @@ export default function EquipmentCatalog() {
     return Object.keys(selectedItems).length;
   };
 
-  const filteredItems = activeTab === 'all' 
-    ? EQUIPMENT_ITEMS 
-    : EQUIPMENT_ITEMS.filter(item => item.category === activeTab);
+  const filteredItems = activeTab === 'all'
+    ? EQUIPMENT_ITEMS
+    : EQUIPMENT_ITEMS.filter((item) => item.category === activeTab);
 
   const buildWhatsAppLink = () => {
-    const selectedList = EQUIPMENT_ITEMS.filter(item => selectedItems[item.id]);
+    const selectedList = EQUIPMENT_ITEMS.filter((item) => selectedItems[item.id]);
     if (selectedList.length === 0) return '';
-    
+
     let text = 'Hi Michael,\n\nI would like to enquire about renting the following equipment from Roos Sound:\n';
-    selectedList.forEach(item => {
+    selectedList.forEach((item) => {
       text += `- ${item.qty} ${item.name} (${item.spec})\n`;
     });
-    
+
     text += '\nPlease let me know your availability and pricing for my event!';
     return `https://wa.me/27722791279?text=${encodeURIComponent(text)}`;
   };
@@ -156,6 +113,16 @@ export default function EquipmentCatalog() {
           const isAdded = !!selectedItems[item.id];
           return (
             <article key={item.id} className={`glass card equipment-card ${isAdded ? 'selected-item' : ''}`}>
+              <div className="equipment-image-slot">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  width="280"
+                  height="280"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
               <div className="equipment-card-header">
                 <span className="badge">{item.qty} Qty</span>
                 <h3>{item.name}</h3>
@@ -192,27 +159,27 @@ export default function EquipmentCatalog() {
               <h3>Selected Equipment Enquiry</h3>
             </div>
             <button type="button" className="drawer-toggle">
-              {isCartOpen ? '▼ Hide' : '▲ Show Selection'}
+              {isCartOpen ? 'Hide' : 'Show Selection'}
             </button>
           </div>
-          
+
           {isCartOpen && (
             <div className="enquiry-drawer-body">
               <ul className="enquiry-list">
-                {EQUIPMENT_ITEMS.filter(item => selectedItems[item.id]).map(item => (
+                {EQUIPMENT_ITEMS.filter((item) => selectedItems[item.id]).map((item) => (
                   <li key={item.id} className="enquiry-item">
                     <span><strong>{item.qty}</strong> {item.name}</span>
-                    <button type="button" className="remove-item-btn" onClick={() => toggleItem(item.id)}>×</button>
+                    <button type="button" className="remove-item-btn" onClick={() => toggleItem(item.id)}>Remove</button>
                   </li>
                 ))}
               </ul>
-              
+
               <div className="enquiry-actions">
                 <button type="button" className="btn secondary small" onClick={clearCart}>Clear All</button>
-                <a 
-                  className="btn small whatsapp-btn" 
+                <a
+                  className="btn small whatsapp-btn"
                   href={buildWhatsAppLink()}
-                  target="_blank" 
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
                   Send WhatsApp Enquiry

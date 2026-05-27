@@ -81,12 +81,12 @@ body::before {
 
 .narrow { width: min(100% - 40px, 760px); margin-inline: auto; }
 .section {
-  padding-block: clamp(34px, 4.4vw, 62px);
+  padding-block: clamp(40px, 5vw, 58px);
   position: relative;
   overflow: clip;
 }
 .section-tight {
-  padding-block: clamp(22px, 3vw, 42px);
+  padding-block: clamp(32px, 4vw, 48px);
   position: relative;
   overflow: clip;
 }
@@ -169,7 +169,7 @@ body::before {
 .mobile-menu { display: none; position: fixed; inset: var(--nav-h) 16px auto; z-index: 45; padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: rgba(5,7,11,.92); backdrop-filter: blur(24px); box-shadow: var(--shadow); }
 .mobile-menu.open { display: grid; gap: 8px; }
 
-h1, h2, h3 { font-family: "Space Grotesk", Inter, sans-serif; letter-spacing: 0; line-height: .98; }
+h1, h2, h3 { font-family: "Space Grotesk", Inter, sans-serif; letter-spacing: -0.015em; line-height: .91; }
 h1 { font-size: clamp(3.8rem, 8.4vw, 6.6rem); }
 h2 { font-size: clamp(2.5rem, 5.4vw, 3.7rem); text-shadow: 0 22px 70px rgba(90,167,255,.16); }
 h3 { font-size: clamp(1.25rem, 2.2vw, 1.5rem); }
@@ -259,7 +259,7 @@ p { color: var(--muted); }
 .hero-glass-panel {
   position: relative;
   width: min(100%, 1040px);
-  min-height: clamp(330px, 48vw, 520px);
+  min-height: clamp(314px, 45.6vw, 494px);
   display: grid;
   place-items: center;
   padding: clamp(28px, 6vw, 72px);
@@ -274,7 +274,7 @@ p { color: var(--muted); }
     0 0 12px rgba(0, 0, 0, .08),
     0 0 34px rgba(255, 255, 255, .12),
     0 38px 100px rgba(0, 0, 0, .48);
-  backdrop-filter: blur(28px) saturate(180%) contrast(1.06);
+  backdrop-filter: blur(16px) saturate(150%) contrast(1.02);
 }
 .hero-glass-panel::before {
   content: "";
@@ -282,8 +282,7 @@ p { color: var(--muted); }
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  backdrop-filter: blur(30px) saturate(165%);
-  filter: url("#hero-glass-blur");
+  backdrop-filter: blur(12px) saturate(145%);
   opacity: .82;
 }
 .hero-glass-panel::after {
@@ -310,7 +309,7 @@ p { color: var(--muted); }
 .hero-copy h1 {
   font-size: clamp(3.15rem, 10vw, 8.4rem);
   text-transform: uppercase;
-  line-height: .82;
+  line-height: .91;
   max-width: 1080px;
   text-wrap: balance;
 }
@@ -452,7 +451,7 @@ p { color: var(--muted); }
   border-radius: var(--radius-lg);
   background: var(--glass-fill), rgba(10, 18, 30, .62);
   box-shadow: var(--glass-glow);
-  backdrop-filter: blur(30px) saturate(190%) contrast(1.05);
+  backdrop-filter: blur(16px) saturate(155%) contrast(1.02);
   overflow: hidden;
 }
 .glass::before {
@@ -726,6 +725,15 @@ form.card { max-height: none; display: block; text-align: left; }
 .timeline-item { position: relative; }
 .timeline-item::before { content: ""; position: absolute; left: -27px; top: 7px; width: 14px; height: 14px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 18px rgba(33,240,210,.55); }
 .catalog-toolbar { display: grid; justify-items: center; gap: 10px; margin-bottom: 14px; text-align: center; }
+.packages-main-heading {
+  font-size: clamp(2.6rem, 4.8vw, 3.5rem);
+  line-height: .91;
+  letter-spacing: -0.015em;
+  background: linear-gradient(115deg, #fff, var(--cyan) 34%, var(--blue) 68%, var(--pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 .filters { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
 .filter-btn, .tab-btn {
   border: 1px solid rgba(224,248,255,.26);
@@ -789,6 +797,76 @@ form.card { max-height: none; display: block; text-align: left; }
 .email-panel h3 {
   font-size: clamp(1.65rem, 3vw, 2.4rem);
 }
+.booking-media-stack {
+  position: relative;
+  min-height: 560px;
+  --booking-panel-size: clamp(192px, 18vw, 236px);
+}
+.booking-photo-block {
+  min-height: 560px;
+  padding: 14px;
+}
+.booking-photo-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: 12px;
+}
+.booking-social-panel {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  width: var(--booking-panel-size);
+  height: var(--booking-panel-size);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.42);
+  background: rgba(8, 14, 22, .74);
+  text-decoration: none;
+  z-index: 2;
+}
+.booking-social-panel img {
+  width: clamp(88px, 8.6vw, 112px);
+  height: clamp(88px, 8.6vw, 112px);
+  object-fit: contain;
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,.48);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(246,250,255,.92), rgba(223,233,247,.86));
+}
+.booking-social-panel span {
+  color: var(--text);
+  font-weight: 800;
+  font-size: .92rem;
+}
+.booking-email-panel {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: var(--booking-panel-size);
+  min-height: var(--booking-panel-size);
+  padding: 18px 16px;
+  gap: 10px;
+  z-index: 2;
+}
+.booking-email-panel h3 {
+  font-size: 1.4rem;
+}
+.booking-email-panel p {
+  font-size: .92rem;
+}
+.booking-email-panel .email-link {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: .94rem;
+  padding: 11px 14px;
+}
 .email-link {
   display: inline-flex;
   max-width: 100%;
@@ -801,7 +879,13 @@ form.card { max-height: none; display: block; text-align: left; }
   font-weight: 900;
   box-shadow: inset 0 1px rgba(255,255,255,.72), 0 16px 34px rgba(0,0,0,.25);
 }
-.reviews-section { overflow: hidden; }
+.reviews-section {
+  overflow: hidden;
+  padding-top: clamp(14px, 2vw, 24px);
+}
+.home-venues-top {
+  padding-top: clamp(12px, 2vw, 26px);
+}
 .reviews-panel {
   display: grid;
   grid-template-columns: 1fr;
@@ -818,9 +902,9 @@ form.card { max-height: none; display: block; text-align: left; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(16px, 3vw, 36px);
-  font-size: clamp(2.5rem, 5.4vw, 5.2rem);
-  line-height: .9;
+  gap: clamp(10px, 2vw, 20px);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: .91;
 }
 .clients-heading h2 {
   white-space: nowrap;
@@ -830,8 +914,8 @@ form.card { max-height: none; display: block; text-align: left; }
 .client-feedback-heading::before,
 .client-feedback-heading::after {
   content: "";
-  flex: 1 1 72px;
-  max-width: 150px;
+  flex: 0 1 52px;
+  max-width: 92px;
   height: 2px;
   border-radius: 999px;
   background: linear-gradient(90deg, transparent, rgba(33,240,210,.65), rgba(90,167,255,.42));
@@ -848,6 +932,8 @@ form.card { max-height: none; display: block; text-align: left; }
   font-weight: 650;
   line-height: 1.45;
   text-align: center;
+  margin-top: -4px;
+  margin-bottom: 14px;
 }
 .venue-ribbon {
   position: relative;
@@ -904,7 +990,7 @@ form.card { max-height: none; display: block; text-align: left; }
   flex: 0 0 auto;
   display: grid;
   place-items: center;
-  padding: clamp(16px, 2vw, 24px);
+  padding: clamp(12px, 1.7vw, 18px);
   border: 1px solid transparent;
   border-radius: 34px;
   background:
@@ -942,15 +1028,24 @@ form.card { max-height: none; display: block; text-align: left; }
     linear-gradient(135deg, transparent, rgba(255,255,255,.11), rgba(255,255,255,.045), transparent);
   mix-blend-mode: screen;
   opacity: .46;
-  filter: url("#ribbon-glass-warp");
   pointer-events: none;
 }
 .venue-logo-card img {
   position: relative;
   z-index: 1;
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 84%;
+  height: 84%;
+  object-fit: contain;
+}
+.venue-logo-card-square img {
+  width: 84%;
+  height: 84%;
+  object-fit: contain;
+}
+.venue-logo-card-fill img {
+  width: 92%;
+  height: 92%;
   object-fit: contain;
 }
 .venue-logo-card-light {
@@ -1053,7 +1148,7 @@ form.card { max-height: none; display: block; text-align: left; }
   max-width: 18ch;
   color: #fff;
   font-size: clamp(1.6rem, 3vw, 2.45rem);
-  line-height: 1.02;
+  line-height: .91;
   text-shadow: 0 16px 45px rgba(90,167,255,.2);
 }
 .review-copy p {
@@ -1339,7 +1434,7 @@ select option { background: #09101a; }
 .footer-links { display: grid; gap: 9px; }
 .footer-bottom { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--dim); font-size: .86rem; }
 
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+.reveal { opacity: 1; transform: none; transition: opacity .24s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 .delay-1 { transition-delay: .08s; }
 .delay-2 { transition-delay: .16s; }
@@ -1374,6 +1469,11 @@ select option { background: #09101a; }
     opacity: 1;
     transform: translateY(0) scale(1) rotate(0deg);
   }
+}
+
+@keyframes rentalsBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1416,7 +1516,7 @@ select option { background: #09101a; }
   .venue-logo-card {
     width: clamp(104px, 28vw, 132px);
     border-radius: 24px;
-    padding: 14px;
+    padding: 12px;
     scroll-snap-align: center;
     -webkit-backdrop-filter: blur(16px) saturate(150%) contrast(1.14) brightness(1.08);
     backdrop-filter: blur(16px) saturate(150%) contrast(1.14) brightness(1.08);
@@ -1440,6 +1540,25 @@ select option { background: #09101a; }
   .cta-panel { grid-template-columns: 1fr; }
   .reviews-panel { grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .review-player { max-width: 760px; transform: none; }
+  .booking-media-stack {
+    min-height: 0;
+  }
+  .booking-photo-block {
+    min-height: 420px;
+  }
+  .booking-email-panel {
+    position: static;
+    width: min(100%, 300px);
+    min-height: 0;
+    margin: 12px auto 0;
+  }
+  .booking-social-panel {
+    position: static;
+    margin: 12px auto 0;
+    width: min(100%, 300px);
+    height: auto;
+    aspect-ratio: 1;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1448,7 +1567,9 @@ select option { background: #09101a; }
   .nav-links, .nav .nav-cta { display: none; }
   .hamburger { display: block; }
   h1 { font-size: 3rem; }
-  .hero-copy h1 { font-size: clamp(2.65rem, 13vw, 3.75rem); line-height: .88; }
+  .hero-copy h1 { font-size: clamp(2.65rem, 13vw, 3.75rem); line-height: .91; }
+  .path-hero .hero-copy h1 { font-size: clamp(2.25rem, 10.2vw, 3.2rem); line-height: .92; }
+  .path-hero .hero-copy h1 span { display: block; }
   .clients-heading h2,
   .client-feedback-heading {
     font-size: clamp(2rem, 9.2vw, 2.8rem);
@@ -1591,7 +1712,62 @@ select option { background: #09101a; }
 }
 
 .equipment-catalog-system {
-  margin-top: 24px;
+  margin-top: 8px;
+}
+
+.equipment-catalog-section {
+  padding-bottom: clamp(8px, 1.2vw, 16px);
+}
+
+.equipment-how-section {
+  padding-top: clamp(8px, 1.2vw, 16px);
+}
+
+.equipment-catalog-section .catalog-toolbar,
+.equipment-how-section .catalog-toolbar {
+  margin-bottom: 10px;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 294px), 294px));
+  justify-content: center;
+  gap: 18px;
+}
+
+.equipment-card {
+  width: min(100%, 294px);
+  min-height: 560px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  align-content: start;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.equipment-image-slot {
+  width: min(100%, 280px);
+  aspect-ratio: 1 / 1;
+  border: 1px dashed rgba(178, 232, 255, 0.45);
+  border-radius: 14px;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.04) 0 14px,
+      rgba(255, 255, 255, 0.02) 14px 28px
+    ),
+    rgba(6, 11, 18, 0.34);
+  display: grid;
+  place-items: center;
+}
+
+.equipment-image-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 .equipment-card-header {
@@ -1599,11 +1775,77 @@ select option { background: #09101a; }
   flex-direction: column;
   gap: 6px;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 0;
+  min-height: 70px;
 }
 
 .equipment-card-header h3 {
   text-align: center;
+  min-height: 58px;
+  display: grid;
+  place-items: center;
+}
+
+.equipment-card p {
+  max-width: 34ch;
+  min-height: 52px;
+  -webkit-line-clamp: 3;
+}
+
+.equipment-card .specs {
+  width: 100%;
+  align-self: end;
+}
+
+.equipment-card .btn {
+  width: min(100%, 280px);
+}
+
+.packages-grid {
+  align-items: stretch;
+}
+
+.packages-grid .card {
+  min-height: 620px;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto 1fr auto;
+  align-content: start;
+}
+
+.packages-grid .card h3 {
+  min-height: 58px;
+  display: grid;
+  place-items: center;
+}
+
+.packages-grid .card > .btn,
+.packages-grid .card > .btn.secondary {
+  margin-top: auto;
+  width: min(100%, 240px);
+}
+
+.packages-grid .features {
+  width: 100%;
+  text-align: left;
+  padding-left: 20px;
+  align-self: start;
+}
+
+.packages-grid .features li {
+  text-align: left;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.view-rentals-btn {
+  background: linear-gradient(135deg, #21f0d2, #5aa7ff) !important;
+  border-color: rgba(255, 255, 255, 0.46) !important;
+  color: #031018 !important;
+  animation: rentalsBounce 2.2s ease-in-out infinite;
+}
+
+.view-rentals-btn:hover {
+  animation-play-state: paused;
 }
 
 /* Floating Enquiry Drawer */
@@ -1713,16 +1955,20 @@ select option { background: #09101a; }
 }
 
 .remove-item-btn {
-  background: none;
-  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
   color: var(--pink);
-  font-size: 1.15rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
   cursor: pointer;
-  padding: 0 4px;
-  line-height: 1;
+  padding: 3px 8px;
+  line-height: 1.2;
 }
 .remove-item-btn:hover {
   color: #ff2d7a;
+  border-color: rgba(255, 45, 122, 0.34);
 }
 
 .enquiry-actions {
@@ -1746,6 +1992,24 @@ select option { background: #09101a; }
 }
 
 @media (max-width: 760px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .equipment-card {
+    width: 100%;
+    min-height: 0;
+  }
+
+  .equipment-image-slot {
+    width: min(100%, 280px);
+  }
+
+  .packages-grid .card {
+    min-height: 0;
+  }
+
   .enquiry-drawer {
     bottom: 14px;
     right: 14px;

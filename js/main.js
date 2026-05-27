@@ -24,14 +24,7 @@ function initPortraits() {
 }
 
 function initReveal() {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: .12, rootMargin: '0px 0px -40px' });
-  qsa('.reveal').forEach(el => observer.observe(el));
+  qsa('.reveal').forEach(el => el.classList.add('visible'));
 }
 
 function initFilters() {

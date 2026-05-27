@@ -38,52 +38,6 @@ function injectChrome() {
   `);
 }
 
-function injectFooter() {
-  document.body.insertAdjacentHTML('beforeend', `
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="stack">
-            <a class="brand" href="index.html">
-              <span class="brand-mark">${iconBars()}</span>
-              <span>ROOS <span class="brand-sub">SOUND</span></span>
-            </a>
-            <p>DJ-led events and a clear route into equipment rentals for events across Stellenbosch and South Africa.</p>
-          </div>
-          <div>
-            <h4>Pages</h4>
-            <div class="footer-links">
-              <a href="packages.html">Packages</a>
-              <a href="equipment.html">Equipment Rentals</a>
-              <a href="dj.html">DJ Services</a>
-            </div>
-          </div>
-          <div>
-            <h4>Packages</h4>
-            <div class="footer-links">
-              <span>DJ Hire</span>
-              <span>Event Packages</span>
-              <span>Equipment Rentals</span>
-              <span>Custom Quotes</span>
-            </div>
-          </div>
-          <div>
-            <h4>Contact</h4>
-            <div class="footer-links">
-              <a href="dj.html#booking">Book an Event</a>
-              <a href="mailto:info@roossound.co.za">info@roossound.co.za</a>
-              <span>Stellenbosch, South Africa</span>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <span>Copyright 2026 Roos Sound Productions. All rights reserved.</span>
-          <span>Website by Franksites, 2026.</span>
-        </div>
-      </div>
-    </footer>
-  `);
-}
 
 function initNav() {
   const nav = qs('.nav');
@@ -268,7 +222,6 @@ function initReviewPlayer() {
 
 document.addEventListener('DOMContentLoaded', () => {
 injectChrome();
-injectFooter();
 initNav();
 buildWaves();
 initPortraits();
