@@ -4,7 +4,7 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/assets/:path*",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "source": "/js/:path*",
+      "source": "/js/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Content-Security-Policy",
