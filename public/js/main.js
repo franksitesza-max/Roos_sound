@@ -4,38 +4,112 @@ const qs = (sel, root = document) => root.querySelector(sel);
 const qsa = (sel, root = document) => [...root.querySelectorAll(sel)];
 
 function iconBars() {
-  return `
-    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="3" y="10" width="2.8" height="6" rx="1.4" fill="currentColor"/>
-      <rect x="8" y="6" width="2.8" height="14" rx="1.4" fill="currentColor"/>
-      <rect x="13" y="3" width="2.8" height="18" rx="1.4" fill="currentColor"/>
-      <rect x="18" y="8" width="2.8" height="10" rx="1.4" fill="currentColor"/>
-    </svg>`;
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('width', '23');
+  svg.setAttribute('height', '23');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('fill', 'none');
+  svg.setAttribute('aria-hidden', 'true');
+
+  [
+    { x: '3', y: '10', w: '2.8', h: '6' },
+    { x: '8', y: '6', w: '2.8', h: '14' },
+    { x: '13', y: '3', w: '2.8', h: '18' },
+    { x: '18', y: '8', w: '2.8', h: '10' }
+  ].forEach(({ x, y, w, h }) => {
+    const rect = document.createElementNS(NS, 'rect');
+    rect.setAttribute('x', x);
+    rect.setAttribute('y', y);
+    rect.setAttribute('width', w);
+    rect.setAttribute('height', h);
+    rect.setAttribute('rx', '1.4');
+    rect.setAttribute('fill', 'currentColor');
+    svg.append(rect);
+  });
+
+  return svg;
+}
+
+function createNavLink(href, label, isActive) {
+  const link = document.createElement('a');
+  link.className = `nav-link${isActive ? ' active' : ''}`;
+  link.href = href;
+  link.textContent = label;
+  return link;
 }
 
 function injectChrome() {
   const page = document.body.dataset.page || 'home';
   const links = [
-    ['index.html', 'Home', 'home'],
-    ['packages.html', 'Packages', 'packages'],
-    ['equipment.html', 'Equipment Rentals', 'equipment'],
-    ['dj.html', 'DJ', 'dj']
+    ['/', 'Home', 'home'],
+    ['/packages', 'Packages', 'packages'],
+    ['/equipment', 'Equipment Rentals', 'equipment'],
+    ['/dj', 'DJ', 'dj']
   ];
-  const navLinks = links.map(([href, label, key]) => `<a class="nav-link ${page === key ? 'active' : ''}" href="${href}">${label}</a>`).join('');
-  document.body.insertAdjacentHTML('afterbegin', `
-    <nav class="nav" aria-label="Main navigation">
-      <div class="container nav-inner">
-        <a class="brand" href="index.html" aria-label="Roos Sound Productions home">
-          <span class="brand-mark">${iconBars()}</span>
-          <span>ROOS <span class="brand-sub">SOUND</span></span>
-        </a>
-        <div class="nav-links">${navLinks}</div>
-        <a class="nav-cta" href="dj.html#booking">Book Now</a>
-        <button class="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      </div>
-    </nav>
-    <div class="mobile-menu" aria-label="Mobile menu">${navLinks}<a class="nav-cta" href="dj.html#booking">Book Now</a></div>
-  `);
+  const nav = document.createElement('nav');
+  nav.className = 'nav';
+  nav.setAttribute('aria-label', 'Main navigation');
+
+  const navInner = document.createElement('div');
+  navInner.className = 'container nav-inner';
+
+  const brand = document.createElement('a');
+  brand.className = 'brand';
+  brand.href = '/';
+  brand.setAttribute('aria-label', 'Roos Sound Productions home');
+
+  const brandMark = document.createElement('span');
+  brandMark.className = 'brand-mark';
+  brandMark.append(iconBars());
+  brand.append(brandMark);
+
+  const brandText = document.createElement('span');
+  brandText.append(document.createTextNode('ROOS '));
+  const brandSub = document.createElement('span');
+  brandSub.className = 'brand-sub';
+  brandSub.textContent = 'SOUND';
+  brandText.append(brandSub);
+  brand.append(brandText);
+
+  const navLinks = document.createElement('div');
+  navLinks.className = 'nav-links';
+  links.forEach(([href, label, key]) => {
+    navLinks.append(createNavLink(href, label, page === key));
+  });
+
+  const navCta = document.createElement('a');
+  navCta.className = 'nav-cta';
+  navCta.href = '/dj#booking';
+  navCta.textContent = 'Book Now';
+
+  const hamburger = document.createElement('button');
+  hamburger.className = 'hamburger';
+  hamburger.type = 'button';
+  hamburger.setAttribute('aria-label', 'Toggle menu');
+  hamburger.setAttribute('aria-expanded', 'false');
+  for (let i = 0; i < 3; i += 1) {
+    hamburger.append(document.createElement('span'));
+  }
+
+  navInner.append(brand, navLinks, navCta, hamburger);
+  nav.append(navInner);
+
+  const mobileMenu = document.createElement('div');
+  mobileMenu.className = 'mobile-menu';
+  mobileMenu.setAttribute('aria-label', 'Mobile menu');
+  links.forEach(([href, label, key]) => {
+    mobileMenu.append(createNavLink(href, label, page === key));
+  });
+
+  const mobileCta = document.createElement('a');
+  mobileCta.className = 'nav-cta';
+  mobileCta.href = '/dj#booking';
+  mobileCta.textContent = 'Book Now';
+  mobileMenu.append(mobileCta);
+
+  document.body.prepend(mobileMenu);
+  document.body.prepend(nav);
 }
 
 
@@ -114,6 +188,27 @@ function initTabs() {
       btn.classList.add('active');
       qs(`[data-panel="${btn.dataset.tab}"]`, root).hidden = false;
     });
+  });
+}
+
+function hardenAnchors() {
+  qsa('a[href]').forEach(anchor => {
+    const rawHref = anchor.getAttribute('href');
+    if (typeof rawHref !== 'string') return;
+
+    const trimmed = rawHref.trim().toLowerCase();
+    if (trimmed.startsWith('javascript:')) {
+      anchor.removeAttribute('href');
+      anchor.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    if (anchor.getAttribute('target') === '_blank') {
+      const rel = new Set((anchor.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+      rel.add('noopener');
+      rel.add('noreferrer');
+      anchor.setAttribute('rel', [...rel].join(' '));
+    }
   });
 }
 
@@ -221,6 +316,7 @@ function initReviewPlayer() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+hardenAnchors();
 injectChrome();
 initNav();
 buildWaves();

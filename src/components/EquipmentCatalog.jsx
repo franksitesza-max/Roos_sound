@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { parseSafeUrl } from '../security-utils.js';
 
 const CATEGORIES = [
   { id: 'all', label: 'All Equipment' },
@@ -88,7 +89,9 @@ export default function EquipmentCatalog() {
     });
 
     text += '\nPlease let me know your availability and pricing for my event!';
-    return `https://wa.me/27722791279?text=${encodeURIComponent(text)}`;
+    const rawLink = `https://wa.me/27722791279?text=${encodeURIComponent(text)}`;
+    const safeUrl = parseSafeUrl(rawLink, { allowSameOrigin: false });
+    return safeUrl ? safeUrl.href : '';
   };
 
   return (

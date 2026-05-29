@@ -15,7 +15,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="stack">
-            <a className="brand" href="index.html">
+            <a className="brand" href="/">
               <span className="brand-mark"><IconBars /></span>
               <span>ROOS <span className="brand-sub">SOUND</span></span>
             </a>
@@ -24,9 +24,9 @@ export default function Footer() {
           <div>
             <h4>Pages</h4>
             <div className="footer-links">
-              <a href="packages.html">Packages</a>
-              <a href="equipment.html">Equipment Rentals</a>
-              <a href="dj.html">DJ Services</a>
+              <a href="/packages">Packages</a>
+              <a href="/equipment">Equipment Rentals</a>
+              <a href="/dj">DJ Services</a>
             </div>
           </div>
           <div>
@@ -41,7 +41,7 @@ export default function Footer() {
           <div>
             <h4>Contact</h4>
             <div className="footer-links">
-              <a href="dj.html#booking">Book an Event</a>
+              <a href="/dj#booking">Book an Event</a>
               <a href="mailto:info@roossound.co.za">info@roossound.co.za</a>
               <span>Stellenbosch, South Africa</span>
             </div>

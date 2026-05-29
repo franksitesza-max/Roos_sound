@@ -127,7 +127,7 @@ export default function ReviewPlayer() {
         </div>
 
         <div className="review-progress" aria-hidden="true">
-          <span style={{ width: `${progressWidth}%`, transition: isPlaying ? 'width 0.03s linear' : 'none' }}></span>
+          <progress className={`review-progress-meter ${isPlaying ? 'is-playing' : ''}`} max="100" value={Math.round(progressWidth)}></progress>
         </div>
         <div className="review-times" aria-hidden="true">
           <span>0:00</span>

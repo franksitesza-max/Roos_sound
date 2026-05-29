@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
 const LINKS = [
-  { href: 'index.html', label: 'Home', key: 'home' },
-  { href: 'packages.html', label: 'Packages', key: 'packages' },
-  { href: 'equipment.html', label: 'Equipment Rentals', key: 'equipment' },
-  { href: 'dj.html', label: 'DJ', key: 'dj' }
+  { href: '/', label: 'Home', key: 'home' },
+  { href: '/packages', label: 'Packages', key: 'packages' },
+  { href: '/equipment', label: 'Equipment Rentals', key: 'equipment' },
+  { href: '/dj', label: 'DJ', key: 'dj' }
 ];
 
 function IconBars() {
@@ -54,7 +54,7 @@ export default function Navbar() {
     <>
       <nav className={`nav ${isScrolled ? 'scrolled' : ''}`} aria-label="Main navigation">
         <div className="container nav-inner">
-          <a className="brand" href="index.html" aria-label="Roos Sound Productions home">
+          <a className="brand" href="/" aria-label="Roos Sound Productions home">
             <span className="brand-mark"><IconBars /></span>
             <span>ROOS <span className="brand-sub">SOUND</span></span>
           </a>
@@ -69,7 +69,7 @@ export default function Navbar() {
               </a>
             ))}
           </div>
-          <a className="nav-cta" href="dj.html#booking">Book Now</a>
+          <a className="nav-cta" href="/dj#booking">Book Now</a>
           <button
             className={`hamburger ${isOpen ? 'open' : ''}`}
             type="button"
@@ -94,7 +94,7 @@ export default function Navbar() {
             {label}
           </a>
         ))}
-        <a className="nav-cta" href="dj.html#booking" onClick={closeMenu}>Book Now</a>
+        <a className="nav-cta" href="/dj#booking" onClick={closeMenu}>Book Now</a>
       </div>
     </>
   );

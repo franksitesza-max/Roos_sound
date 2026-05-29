@@ -1272,15 +1272,29 @@ form.card { max-height: none; display: block; text-align: left; }
   overflow: hidden;
   background: rgba(255,255,255,.14);
 }
-.review-progress span {
-  display: block;
+.review-progress-meter {
+  width: 100%;
   height: 100%;
-  width: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+}
+.review-progress-meter::-webkit-progress-bar {
+  background: transparent;
+}
+.review-progress-meter::-webkit-progress-value {
   border-radius: inherit;
   background: var(--grad-hot);
+  transition: width 0.03s linear;
 }
-.review-player.is-playing .review-progress span {
-  animation: reviewProgress 6s linear forwards;
+.review-progress-meter::-moz-progress-bar {
+  border-radius: inherit;
+  background: var(--grad-hot);
+  transition: width 0.03s linear;
+}
+.review-progress-meter:not(.is-playing)::-webkit-progress-value,
+.review-progress-meter:not(.is-playing)::-moz-progress-bar {
+  transition: none;
 }
 .review-times {
   display: flex;
@@ -1452,10 +1466,6 @@ select option { background: #09101a; }
   to { background-position: 480px 0; }
 }
 
-@keyframes reviewProgress {
-  from { width: 0; }
-  to { width: 100%; }
-}
 @keyframes venueRibbon {
   from { transform: translateX(-50%); }
   to { transform: translateX(0); }

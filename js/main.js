@@ -54,7 +54,29 @@ function initTabs() {
   });
 }
 
+function hardenAnchors() {
+  qsa('a[href]').forEach(anchor => {
+    const rawHref = anchor.getAttribute('href');
+    if (typeof rawHref !== 'string') return;
+
+    const trimmed = rawHref.trim().toLowerCase();
+    if (trimmed.startsWith('javascript:')) {
+      anchor.removeAttribute('href');
+      anchor.setAttribute('aria-disabled', 'true');
+      return;
+    }
+
+    if (anchor.getAttribute('target') === '_blank') {
+      const rel = new Set((anchor.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+      rel.add('noopener');
+      rel.add('noreferrer');
+      anchor.setAttribute('rel', [...rel].join(' '));
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  hardenAnchors();
   buildWaves();
   initPortraits();
   initReveal();
