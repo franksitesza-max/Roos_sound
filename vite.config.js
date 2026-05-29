@@ -11,7 +11,8 @@ export default defineConfig({
         home: resolve(__dirname, 'index.html'),
         packages: resolve(__dirname, 'packages.html'),
         equipment: resolve(__dirname, 'equipment.html'),
-        dj: resolve(__dirname, 'dj.html')
+        dj: resolve(__dirname, 'dj.html'),
+        privacy: resolve(__dirname, 'privacy.html')
       }
     }
   }

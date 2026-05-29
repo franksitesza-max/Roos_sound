@@ -43,6 +43,7 @@ export default function Footer() {
             <div className="footer-links">
               <a href="/dj#booking">Book an Event</a>
               <a href="mailto:info@roossound.co.za">info@roossound.co.za</a>
+              <a href="/privacy">Privacy & Terms</a>
               <span>Stellenbosch, South Africa</span>
             </div>
           </div>
